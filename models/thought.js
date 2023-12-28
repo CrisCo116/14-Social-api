@@ -1,6 +1,11 @@
 const { Schema, model, Types } = require('mongoose');
 const moment = require('moment');
 
+// Common options for both schemas
+const commonOptions = {
+  // ... your common options here
+};
+
 // Validation Middleware
 const reactionBodyValidator = [
   ({ length }) => length <= 280,
@@ -73,4 +78,4 @@ thoughtSchema.virtual('reactionCount').get(function () {
 // Create the Thought model using the ThoughtSchema
 const Thought = model('thought', thoughtSchema);
 
-module.exports = thought;
+module.exports = Thought;
