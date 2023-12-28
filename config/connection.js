@@ -1,4 +1,3 @@
-// connect to MongoDB
 const { connect, connection } = require('mongoose');
 
 // import environmental variables from our variables.env file
