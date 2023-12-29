@@ -1,14 +1,11 @@
+// connect to MongoDB
 const { connect, connection } = require('mongoose');
 
 // import environmental variables from our variables.env file
 const connectionString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialMediaDb';
 
 // connect to the database with the connection string
-connect(connectionString, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
-
+connect(connectionString);
 // log the connection
 connection.on('connected', () => {
 	console.log('MongoDB connection established successfully');

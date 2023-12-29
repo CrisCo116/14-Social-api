@@ -1,19 +1,21 @@
+// import dependencies
 const express = require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
 
-//PORT
-const PORT = process.env.PORT || 3001;
+// setup express and port
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
+// use express middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// use routes
 app.use(routes);
 
-// Start the server
+// start server and connect to db
 db.once('open', () => {
-    app.listen(PORT, () => {
+  app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
-    });
+  });
 });
